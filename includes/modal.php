@@ -76,7 +76,8 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                    <input  name="" value="" type="hidden" id="hid"/>
+                     <div class="display" id=hid></div>
+                
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="ename" value="" name="name">
                     </div>

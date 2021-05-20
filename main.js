@@ -53,7 +53,8 @@ function editData(id){
 
 
 function Update(){
-	let id = document.getElementById("hid").innerHTML;
+	 let id = document.getElementById("hid").innerHTML;
+	
 	let name = document.getElementById("ename").value;
 	let email = document.getElementById("eemail").value;
 	let phone = document.getElementById("ephone").value;
