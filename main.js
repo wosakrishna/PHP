@@ -16,6 +16,9 @@ loadData();
 
 function viewData(id){
 	let req = new XMLHttpRequest();
+	req.open("GET", "detail.php?id="+id, true);
+	req.send();
+	
 	req.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
 			var res = JSON.parse(this.responseText);
@@ -26,8 +29,7 @@ function viewData(id){
 			document.getElementById("sgender").innerHTML = res.result.gender;
 		}
 	}
-	req.open("GET", "detail.php?id="+id, true);
-	req.send();
+	
 
 }
 
@@ -38,7 +40,7 @@ function editData(id){
 		if(this.readyState == 4 && this.status == 200){
 			var res = JSON.parse(this.responseText);
 			console.log(typeof res);
-			document.getElementById("hid").innerHTML = res.result.id;
+			document.getElementById("hid").value = res.result.id;
 			document.getElementById("ename").value = res.result.name;
 			document.getElementById("eemail").value = res.result.email;
 			document.getElementById("ephone").value = res.result.phone;
@@ -53,8 +55,7 @@ function editData(id){
 
 
 function Update(){
-	 let id = document.getElementById("hid").innerHTML;
-	
+	let id = document.getElementById("hid").value;
 	let name = document.getElementById("ename").value;
 	let email = document.getElementById("eemail").value;
 	let phone = document.getElementById("ephone").value;
@@ -113,8 +114,45 @@ function submit(){
 	let req = new XMLHttpRequest();
 	req.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
-			console.log(this.responseText);
-			loadData();
+			let response = JSON.parse(this.responseText);
+			console.log(response);
+			// {"result":{"name":"","email":"Email already exists","phone":"Contact already exists","gender":"Gender is empty"}}
+			document.getElementById("nameErr").innerHTML = document.getElementById("emailErr").innerHTML = document.getElementById("phoneErr").innerHTML = document.getElementById("genderErr").innerHTML = "";
+
+			document.getElementById("name").classList.remove("is-invalid");
+			document.getElementById("email").classList.remove("is-invalid");
+			document.getElementById("phone").classList.remove("is-invalid");
+			document.getElementById("gender").classList.remove("is-invalid");
+
+			
+			if(response.result.name){
+				document.getElementById("nameErr").innerHTML = response.result.name;
+				document.getElementById("name").classList.add("is-invalid");
+			}
+
+			if(response.result.email){
+				document.getElementById("emailErr").innerHTML = response.result.email;
+				document.getElementById("email").classList.add("is-invalid");
+			}
+
+			if(response.result.phone){
+				document.getElementById("phoneErr").innerHTML = response.result.phone;
+				document.getElementById("phone").classList.add("is-invalid");
+			}
+
+			if(response.result.gender){
+				document.getElementById("genderErr").innerHTML = response.result.gender;
+				document.getElementById("gender").classList.add("is-invalid");
+			}
+
+			if(response.result.msg){
+				$('#exampleModal').modal('hide');
+				$('#exampleModal form').trigger('reset');
+				loadData();
+				document.getElementById("res").innerHTML = response.result.msg;
+			}
+			
+
 		}
 	}
 	req.open("POST", "submit.php", true);
