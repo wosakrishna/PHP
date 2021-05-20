@@ -10,15 +10,15 @@
                 <form>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" value="dummy" name="name">
+                        <input type="text" class="form-control" id="name" value="" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" value="email@gmail.com"  name="email">
+                        <input type="email" class="form-control" id="email" value=""  name="email">
                     </div>
                     <div class="mb-3">
                         <label for="phone" class="form-label">phone</label>
-                        <input type="text" class="form-control" id="phone" value="9874563214" name="phone" >
+                        <input type="text" class="form-control" id="phone" value="" name="phone" >
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender</label>
