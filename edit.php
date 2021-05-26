@@ -5,7 +5,7 @@
 
 	$row = mysqli_fetch_assoc($query);
 
-    $id=$row['id'];
+    $id= $row['id'];
 	$name = $row['name'];
 	$email = $row['email'];
 	$phone = $row['phone'];

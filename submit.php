@@ -60,7 +60,7 @@
 	}else{
 		$query = mysqli_query($con, "INSERT INTO profile (name, email, `phone`, `gender`) VALUES ('$_POST[nm]', '$_POST[em]', '$_POST[ph]', '$_POST[gn]')");
 		if($query){
-			$success['msg'] = "Data Submitted";
+			$success['msg'] = "Data Submitted with name is'$_POST[nm]' and Email is  '$_POST[em]'";
 			$data = [
 				"result" => $success
 			];

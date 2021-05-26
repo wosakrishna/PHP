@@ -6,8 +6,9 @@
 
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add data
 </button>
-<div id="res"></div>
+
 <div class="container">
+<div id="res" class="col-md-10 m-auto"></div>
 	<div class="row">
 		<div class="col-md-10 m-auto">
 			<table class="table table-success table-striped ">

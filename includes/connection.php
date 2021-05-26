@@ -1,3 +1,13 @@
 <?php
 	//$con = mysqli_connect("localhost", "root", "", "basics");
-	$con = mysqli_connect("sql6.freemysqlhosting.net", "sql6413040", "6K6cBp9dkK", "sql6413040");
+	$con = mysqli_connect("remotemysql.com", "HavgFDfBEZ", "K3QGy4ry26", "HavgFDfBEZ");
+
+// 	Username: HavgFDfBEZ
+
+// Database name: HavgFDfBEZ
+
+// Password: K3QGy4ry26
+
+// Server: remotemysql.com
+
+// Port: 3306
